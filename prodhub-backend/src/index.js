@@ -5,6 +5,7 @@ import cors from "@fastify/cors";
 
 import { authRoutes } from "./modules/auth/auth.routes.js";
 import { tasksRoutes } from "./modules/tasks.routes.js";
+import { aiRoutes } from "./modules/ai/ai.routes.js";
 
 const fastify = Fastify({ logger: true});
 
@@ -21,6 +22,7 @@ fastify.register(fastifyJwt, {
 // Register Modules
 fastify.register(authRoutes, { prefix: "/api/auth" });
 fastify.register(tasksRoutes, { prefix: "/api/tasks" });
+fastify.register(aiRoutes, { prefix: "/api/ai" });
 
 // Basic test endpoint
 fastify.get("/ping", async() => {
